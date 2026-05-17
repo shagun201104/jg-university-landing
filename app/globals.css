@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --foreground: #101828;
+  --brand: #d8232a;
+  --ink: #111827;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(216, 35, 42, 0.08), transparent 28rem),
+    radial-gradient(circle at 90% 18%, rgba(14, 165, 233, 0.1), transparent 24rem),
+    var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@keyframes float-card {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float-card {
+  animation: float-card 6s ease-in-out infinite;
+}
+
+.animate-reveal-up {
+  animation: reveal-up 0.8s ease both;
+}
+
+.marquee-track {
+  animation: marquee 24s linear infinite;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.74);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  box-shadow: 0 18px 60px rgba(15, 23, 42, 0.1);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
