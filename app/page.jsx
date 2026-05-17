@@ -5,13 +5,19 @@ import {
   BookOpenCheck,
   BriefcaseBusiness,
   Building2,
+  CalendarDays,
   CheckCircle2,
   ChevronRight,
+  Download,
   GraduationCap,
   Laptop,
+  Lightbulb,
   MapPin,
   Menu,
+  Microscope,
+  PhoneCall,
   Play,
+  Rocket,
   Sparkles,
   Star,
   UsersRound,
@@ -56,6 +62,29 @@ const strengths = [
   "Interdisciplinary learning across management, tech and science",
   "R&D, incubation, IIoT lab and tech-enabled library access",
   "Curriculum shaped around employment and entrepreneurship"
+];
+
+const reasons = [
+  {
+    title: "Industry Projects",
+    detail: "Build portfolio-ready work through live briefs, hackathons and guided capstones.",
+    icon: BriefcaseBusiness
+  },
+  {
+    title: "Placement Support",
+    detail: "Career mentoring, interview readiness and employer connections from early semesters.",
+    icon: UsersRound
+  },
+  {
+    title: "Modern Labs",
+    detail: "Hands-on access to computing, IIoT, research and digital learning infrastructure.",
+    icon: Microscope
+  },
+  {
+    title: "Startup & Incubation",
+    detail: "Turn promising ideas into prototypes with mentorship, incubation and business support.",
+    icon: Rocket
+  }
 ];
 
 const testimonials = [
@@ -368,6 +397,41 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="px-4 py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+            <div>
+              <p className="mb-3 text-sm font-black uppercase tracking-[0.22em] text-red-600">
+                Why Choose JG
+              </p>
+              <h2 className="text-balance text-4xl font-black tracking-tight text-slate-950 md:text-5xl">
+                A learning experience built for careers, ideas and confidence.
+              </h2>
+            </div>
+            <p className="text-lg leading-8 text-slate-600">
+              Students get the room to experiment, the mentorship to improve
+              and the academic structure to move from classroom knowledge to
+              practical capability.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {reasons.map(({ title, detail, icon: Icon }) => (
+              <article
+                key={title}
+                className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-2 hover:border-red-100 hover:shadow-xl"
+              >
+                <div className="mb-7 grid h-14 w-14 place-items-center rounded-2xl bg-red-50 text-red-600">
+                  <Icon size={27} />
+                </div>
+                <h3 className="text-xl font-black text-slate-950">{title}</h3>
+                <p className="mt-4 leading-7 text-slate-600">{detail}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="stories" className="px-4 py-24">
         <div className="mx-auto max-w-7xl">
           <SectionIntro
@@ -398,48 +462,74 @@ export default function Home() {
           <div className="grid gap-0 lg:grid-cols-[1fr_0.92fr]">
             <div className="p-8 md:p-14">
               <p className="mb-3 text-sm font-black uppercase tracking-[0.22em] text-red-300">
-                Admissions CTA
+                Admissions Open
               </p>
               <h2 className="text-balance text-4xl font-black tracking-tight md:text-6xl">
                 Start building the version of your future that can compete.
               </h2>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-                This landing page is structured for a complete walkthrough: hero,
-                responsive navigation, program cards, animated partner strip,
-                testimonials and a polished CTA.
+                Explore programs, visit the Ahmedabad campus and speak with an
+                admissions counsellor to choose the pathway that fits your goals.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
-                  href="mailto:vikas@codingjr.online"
+                  href="mailto:admissions@jguni.in"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-red-600 px-7 py-4 text-sm font-black text-white transition hover:-translate-y-1 hover:bg-red-700"
                 >
-                  Submit project
+                  Apply for admission
                   <ArrowRight size={18} />
                 </a>
                 <a
-                  href="#"
+                  href="#programs"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-4 text-sm font-black text-slate-950 transition hover:-translate-y-1"
                 >
-                  Back to top
+                  View programs
                 </a>
               </div>
             </div>
             <div className="bg-white p-8 text-slate-950 md:p-14">
-              <h3 className="text-2xl font-black">Submission checklist</h3>
-              <div className="mt-7 grid gap-4">
+              <div className="mb-8 inline-flex items-center gap-2 rounded-full bg-red-50 px-4 py-2 text-sm font-black text-red-700">
+                <Sparkles size={16} />
+                Admissions 2026
+              </div>
+              <h3 className="text-3xl font-black tracking-tight">
+                Plan your next step with JG University.
+              </h3>
+              <p className="mt-4 leading-7 text-slate-600">
+                Get program guidance, campus visit support and counsellor help
+                before you apply.
+              </p>
+              <div className="mt-8 grid gap-4">
                 {[
-                  "GitHub Repository Link",
-                  "Hosted Link",
-                  "Demo Video, 2-5 minutes",
-                  "Full Name",
-                  "Phone Number",
-                  "Email to vikas@codingjr.online"
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-3 rounded-2xl bg-slate-50 p-4">
-                    <CheckCircle2 className="shrink-0 text-red-600" size={20} />
-                    <span className="font-bold">{item}</span>
-                  </div>
+                  ["Download Brochure", Download],
+                  ["Book Campus Visit", CalendarDays],
+                  ["Talk to Counsellor", PhoneCall],
+                  ["Explore Innovation Cells", Lightbulb]
+                ].map(([item, Icon]) => (
+                  <a
+                    key={item}
+                    href={item === "Download Brochure" ? "#programs" : "mailto:admissions@jguni.in"}
+                    className="group flex items-center justify-between rounded-2xl bg-slate-50 p-4 transition hover:bg-red-50"
+                  >
+                    <span className="flex items-center gap-3 font-black">
+                      <span className="grid h-10 w-10 place-items-center rounded-full bg-white text-red-600 shadow-sm">
+                        <Icon size={19} />
+                      </span>
+                      {item}
+                    </span>
+                    <ArrowRight className="text-slate-400 transition group-hover:translate-x-1 group-hover:text-red-600" size={18} />
+                  </a>
                 ))}
+              </div>
+              <div className="mt-8 rounded-3xl bg-slate-950 p-5 text-white">
+                <p className="flex items-center gap-2 text-sm font-black uppercase tracking-[0.16em] text-red-200">
+                  <MapPin size={16} />
+                  Ahmedabad Campus
+                </p>
+                <p className="mt-3 text-sm leading-6 text-slate-300">
+                  Visit the campus, meet the admissions team and explore the
+                  labs, library and student spaces.
+                </p>
               </div>
             </div>
           </div>
